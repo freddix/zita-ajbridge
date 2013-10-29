@@ -1,6 +1,6 @@
-diff -aurN zita-ajbridge-0.2.2.orig/source/Makefile zita-ajbridge-0.2.2/source/Makefile
---- zita-ajbridge-0.2.2.orig/source/Makefile	2012-11-18 19:05:18.311849848 +0100
-+++ zita-ajbridge-0.2.2/source/Makefile	2012-11-18 19:36:00.053143690 +0100
+diff -aurN zita-ajbridge-0.4.0.orig/source/Makefile zita-ajbridge-0.4.0/source/Makefile
+--- zita-ajbridge-0.4.0.orig/source/Makefile	2013-10-29 21:46:45.832140682 +0100
++++ zita-ajbridge-0.4.0/source/Makefile	2013-10-29 21:48:26.024988448 +0100
 @@ -18,14 +18,14 @@
  # ----------------------------------------------------------------------------
  
@@ -8,7 +8,7 @@ diff -aurN zita-ajbridge-0.2.2.orig/source/Makefile zita-ajbridge-0.2.2/source/M
 -PREFIX = /usr/local
 +PREFIX = /usr
  SUFFIX := $(shell uname -m | sed -e 's/^unknown/$//' -e 's/^i.86/$//' -e 's/^x86_64/$/64/')
- VERSION = 0.2.2
+ VERSION = 0.4.0
  BINDIR = $(PREFIX)/bin
  LIBDIR = lib$(SUFFIX)
  LDFLAGS += -L$(PREFIX)/$(LIBDIR)
@@ -23,7 +23,7 @@ diff -aurN zita-ajbridge-0.2.2.orig/source/Makefile zita-ajbridge-0.2.2/source/M
  zita-a2j:	LDLIBS += -lzita-resampler -lzita-alsa-pcmi -ljack -lasound -lpthread -lm -lrt
  zita-a2j:	$(ZITA-A2J_O)
 -	g++ $(LDFLAGS) -o $@ $(ZITA-A2J_O) $(LDLIBS)
-+	$(CXX) $(LDFLAGS) -o $@ $(ZITA-A2J_O) $(LDLIBS)
++	$(CXX) $(LDFLAGS) $(CXXFLAGS) -o $@ $(ZITA-A2J_O) $(LDLIBS)
  
  
  ZITA-J2A_O = zita-j2a.o alsathread.o jackclient.o pxthread.o lfqueue.o
@@ -32,7 +32,7 @@ diff -aurN zita-ajbridge-0.2.2.orig/source/Makefile zita-ajbridge-0.2.2/source/M
  zita-j2a:	LDLIBS += -lzita-resampler -lzita-alsa-pcmi -ljack -lasound -lpthread -lm -lrt
  zita-j2a:	$(ZITA-J2A_O)
 -	g++ $(LDFLAGS) -o $@ $(ZITA-J2A_O) $(LDLIBS)
-+	$(CXX) $(LDFLAGS) -o $@ $(ZITA-J2A_O) $(LDLIBS)
++	$(CXX) $(LDFLAGS) $(CXXFLAGS) -o $@ $(ZITA-J2A_O) $(LDLIBS)
  
  
  install:	all

@@ -1,11 +1,11 @@
 Summary:	ALSA <--> Jack bridge
 Name:		zita-ajbridge
-Version:	0.2.2
+Version:	0.4.0
 Release:	1
 License:	GPL v3
 Group:		X11/Applications
 Source0:	http://kokkinizita.linuxaudio.org/linuxaudio/downloads/%{name}-%{version}.tar.bz2
-# Source0-md5:	3eeff50347213ec23a92426285fab3a4
+# Source0-md5:	9b834537b26063cc9ea6990cadeef62d
 Patch0:		%{name}-make.patch
 BuildRequires:	alsa-lib-devel
 BuildRequires:	jack-audio-connection-kit-devel
